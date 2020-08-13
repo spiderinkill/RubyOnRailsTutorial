@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # let root to be "controller welcome" with "method index"
+  root 'welcome#index'
 end
