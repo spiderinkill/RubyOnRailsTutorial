@@ -1,43 +1,5 @@
 <h1> Article New - view new.html.erb </h1>
 
-<%# '<% ' --> used to run ruby code                  %>
-<%# '<%=' --> used to run ruby code and return result%>
-
-<%= form_with scope: :article, url: articles_path, local: true do |form| %>
-  <% if @article.errors.any? %>
-     <div id='error_msg'>
-       <h2>
-         <%# Now link back to 'why we add new in previous 'new'
-             because we want to throw exception here.
-
-             if we don't new a Article instance, then below error handling will
-             try to call 'errors' method on a nil, which is NPE
-         %>
-
-         <%= pluralize(@article.errors.count, 'error') %> prohibited
-           this article from being saved:
-       </h2>
-       <ul>
-         <% @article.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-         <% end %>
-       </ul>
-     </div>
-  <% end %>
-
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<% render 'form' %>
 
 <%= link_to 'Back to all articles', articles_path %>
